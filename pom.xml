@@ -97,6 +97,17 @@
     </repository>
   </repositories>
 
+  <pluginRepositories>
+    <pluginRepository>
+      <id>aliyun-central</id>
+      <url>https://maven.aliyun.com/repository/central</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>aliyun-public</id>
+      <url>https://maven.aliyun.com/repository/public</url>
+    </pluginRepository>
+  </pluginRepositories>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

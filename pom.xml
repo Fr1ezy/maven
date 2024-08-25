@@ -95,6 +95,34 @@
     </plugins>
   </build>
 
+  <repositories>
+    <repository>
+      <id>aliyun-central</id>
+      <name>Aliyun Maven Central Repository</name>
+      <url>https://maven.aliyun.com/repository/central</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>aliyun-central</id>
+      <name>Aliyun Maven Central Repository</name>
+      <url>https://maven.aliyun.com/repository/central</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

@@ -32,7 +32,7 @@ steps:
 
   # 运行 Nikto 漏洞扫描
   - name: nikto-scan
-    image: sullo/nikto
+    image: securecodebox/nikto
     commands:
       - nikto -h http://localhost:8080  # 这里的端口应与项目启动的端口一致
 

@@ -1,12 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>classroom</groupId>
   <artifactId>demo</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  
+
   <name>demo</name>
   <url>http://maven.apache.org</url>
 
@@ -26,20 +27,6 @@
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
-        </configuration>
-      </plugin>
-
-      <!-- Maven Jar Plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.2.0</version>
-        <configuration>
-          <archive>
-            <manifestEntries>
-              <Main-Class>com.example.MainClass</Main-Class> <!-- 替换为你的主类路径 -->
-            </manifestEntries>
-          </archive>
         </configuration>
       </plugin>
 
@@ -100,15 +87,26 @@
   </build>
 
   <repositories>
+    <!-- 阿里云 Maven 中央仓库 -->
     <repository>
       <id>aliyun-central</id>
       <url>https://maven.aliyun.com/repository/central</url>
     </repository>
+
+    <!-- 阿里云公共仓库 -->
     <repository>
       <id>aliyun-public</id>
       <url>https://maven.aliyun.com/repository/public</url>
     </repository>
   </repositories>
+
+  <pluginRepositories>
+    <!-- 阿里云 Maven 插件仓库 -->
+    <repository>
+      <id>aliyun-plugin</id>
+      <url>https://maven.aliyun.com/repository/plugin</url>
+    </repository>
+  </pluginRepositories>
 
   <dependencies>
     <dependency>

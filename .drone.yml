@@ -25,7 +25,7 @@ steps:
     environment:
       MAVEN_OPTS: "-Dmaven.repo.local=/root/.m2/repository"
     commands:
-      - java -jar target/your-app.jar &
+      - java -jar target/`ls target/*.jar | grep -v sources` &
       - sleep 10  # 等待服务器启动
 
   # 运行 Nikto 漏洞扫描

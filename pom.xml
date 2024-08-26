@@ -1,82 +1,121 @@
-<build>
-  <plugins>
-    <!-- Maven Compiler Plugin -->
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-compiler-plugin</artifactId>
-      <version>3.8.1</version>
-      <configuration>
-        <source>1.8</source>
-        <target>1.8</target>
-      </configuration>
-    </plugin>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <!-- Maven Jar Plugin -->
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-jar-plugin</artifactId>
-      <version>3.2.0</version>
-      <configuration>
-        <archive>
-          <manifestEntries>
-            <Main-Class>com.example.MainClass</Main-Class> <!-- 替换为你的主类路径 -->
-          </manifestEntries>
-        </archive>
-      </configuration>
-    </plugin>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>classroom</groupId>
+  <artifactId>demo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  
+  <name>demo</name>
+  <url>http://maven.apache.org</url>
 
-    <!-- Maven Surefire Plugin -->
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-surefire-plugin</artifactId>
-      <version>3.0.0-M5</version>
-      <configuration>
-        <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
-      </configuration>
-    </plugin>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
 
-    <!-- Docker Integration Plugin -->
-    <plugin>
-      <groupId>com.spotify</groupId>
-      <artifactId>docker-maven-plugin</artifactId>
-      <version>1.0.0</version>
-      <configuration>
-        <imageName>myproject</imageName>
-        <baseImage>ubuntu</baseImage>
-        <resources>
-          <resource>
-            <targetPath>/</targetPath>
-            <directory>${project.build.directory}</directory>
-            <include>${project.build.finalName}.jar</include>
-          </resource>
-        </resources>
-      </configuration>
-    </plugin>
+  <build>
+    <plugins>
+      <!-- Maven Compiler Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
 
-    <!-- Jacoco for Code Coverage -->
-    <plugin>
-      <groupId>org.jacoco</groupId>
-      <artifactId>jacoco-maven-plugin</artifactId>
-      <version>0.8.7</version>
-      <configuration>
-        <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
-        <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
-      </configuration>
-      <executions>
-        <execution>
-          <id>jacoco-initialize</id>
-          <goals>
-            <goal>prepare-agent</goal>
-          </goals>
-        </execution>
-        <execution>
-          <id>jacoco-site</id>
-          <phase>package</phase>
-          <goals>
-            <goal>report</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
-  </plugins>
-</build>
+      <!-- Maven Jar Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.0</version>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Main-Class>com.example.MainClass</Main-Class> <!-- 替换为你的主类路径 -->
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <!-- Maven Surefire Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
+        <configuration>
+          <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+        </configuration>
+      </plugin>
+
+      <!-- Docker Integration Plugin -->
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <configuration>
+          <imageName>myproject</imageName>
+          <baseImage>ubuntu</baseImage>
+          <resources>
+            <resource>
+              <targetPath>/</targetPath>
+              <directory>${project.build.directory}</directory>
+              <include>${project.build.finalName}.jar</include>
+            </resource>
+          </resources>
+        </configuration>
+      </plugin>
+
+      <!-- Jacoco for Code Coverage -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.7</version>
+        <configuration>
+          <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
+          <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
+        </configuration>
+        <executions>
+          <execution>
+            <id>jacoco-initialize</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>jacoco-site</id>
+            <phase>package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>aliyun-central</id>
+      <url>https://maven.aliyun.com/repository/central</url>
+    </repository>
+    <repository>
+      <id>aliyun-public</id>
+      <url>https://maven.aliyun.com/repository/public</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

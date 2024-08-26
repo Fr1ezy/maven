@@ -18,6 +18,7 @@ steps:
       MAVEN_OPTS: "-Dmaven.repo.local=/root/.m2/repository -DskipTests=true"
     commands:
       - mvn clean install -B -DskipTests
+      - ls -l target  # 列出 target 目录中的所有文件
 
   # 启动 Web 服务器
   - name: start-server
@@ -25,7 +26,8 @@ steps:
     environment:
       MAVEN_OPTS: "-Dmaven.repo.local=/root/.m2/repository"
     commands:
-      - java -jar target/`ls target/*.jar | grep -v sources` &
+      - ls -l target  # 列出 target 目录中的所有文件，以验证 JAR 文件的路径
+      - java -jar target/demo-1.0-SNAPSHOT.jar &
       - sleep 10  # 等待服务器启动
 
   # 运行 Nikto 漏洞扫描

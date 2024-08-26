@@ -8,8 +8,8 @@ steps:
     image: plugins/cache  
     settings:  
       restore: true  
-      mount:  
-        - target: /root/.m2/repository  # Maven 本地仓库路径
+      paths:  
+        - /root/.m2/repository  # Maven 本地仓库路径
   
   # 编译项目
   - name: build  
@@ -32,8 +32,8 @@ steps:
     image: plugins/cache  
     settings:  
       rebuild: true  
-      mount:  
-        - target: /root/.m2/repository  # Maven 本地仓库路径
+      paths:  
+        - /root/.m2/repository  # Maven 本地仓库路径
   
 trigger:  
   branch:  

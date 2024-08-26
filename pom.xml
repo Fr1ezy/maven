@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+  
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>classroom</groupId>
@@ -87,13 +87,10 @@
   </build>
 
   <repositories>
-    <!-- 阿里云 Maven 中央仓库 -->
     <repository>
       <id>aliyun-central</id>
       <url>https://maven.aliyun.com/repository/central</url>
     </repository>
-
-    <!-- 阿里云公共仓库 -->
     <repository>
       <id>aliyun-public</id>
       <url>https://maven.aliyun.com/repository/public</url>
@@ -101,11 +98,14 @@
   </repositories>
 
   <pluginRepositories>
-    <!-- 阿里云 Maven 插件仓库 -->
-    <repository>
-      <id>aliyun-plugin</id>
-      <url>https://maven.aliyun.com/repository/plugin</url>
-    </repository>
+    <pluginRepository>
+      <id>aliyun-central</id>
+      <url>https://maven.aliyun.com/repository/central</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>aliyun-public</id>
+      <url>https://maven.aliyun.com/repository/public</url>
+    </pluginRepository>
   </pluginRepositories>
 
   <dependencies>
@@ -116,5 +116,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
 </project>

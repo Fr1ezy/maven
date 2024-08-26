@@ -27,7 +27,7 @@
         <configuration>
           <archive>
             <manifestEntries>
-              <Main-Class>com.example.classroom.App</Main-Class> <!-- 替换为你的主类全路径 -->
+              <Main-Class>classroom.App</Main-Class> <!-- 替换为你的主类全路径 -->
             </manifestEntries>
           </archive>
         </configuration>
